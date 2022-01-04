@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SLAM &mdash; AmovCar 1.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="导航" href="%E5%AF%BC%E8%88%AA.html" />
+    <link rel="prev" title="传感器校准" href="%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> AmovCar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">概述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%A6%82%E8%BF%B0.html">R系列无人车概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%89%B9%E7%82%B9.html">R系列无人车特点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%BB%84%E6%88%90.html">R300硬件组成以及配置参数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html">硬件模块介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html">硬件连接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF.html">通信链路</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%9C%AF%E8%AF%AD.html">术语</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">R300</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html">快速上手指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html">传感器校准</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SLAM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gmapping">Gmapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cartographer">Cartographer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cartographer-demo">Cartographer Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">三维建图</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%AF%BC%E8%88%AA.html">导航</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%BF%E7%9C%9F.html">仿真</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AmovCar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>SLAM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/R300/SLAM.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="slam">
+<h1>SLAM<a class="headerlink" href="#slam" title="永久链接至标题"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>在您阅读此内容之前，确保您已经阅读了 <a class="reference external" href="快速上手指引.html">快速上手指引</a> 内容，并了解 <a class="reference external" href="../overview/通信链路.html">通信链路</a> 。</p>
+</div>
+<section id="gmapping">
+<h2>Gmapping<a class="headerlink" href="#gmapping" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>将小车上电，等待板载计算机、飞控、移动端RTK、移动端Homer启动完成</p></li>
+<li><p>打开遥控器</p></li>
+<li><p>在PC上打开 No Machine 软件，输入 <strong>192.168.1.14</strong> 远程连接到板载计算机。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>板载计算机的固定IP，取决您如何设置 <a class="reference external" href="快速上手指引.html#ip">板载计算机IP</a></p>
+</div>
+</li>
+<li><p>输入密码 <strong>amov</strong> 登录到板载计算机</p></li>
+<li><p>打开板载计算机桌面的 <strong>sh</strong> 文件夹后，右键选择 <strong>open terminal</strong></p></li>
+<li><p>输入命令 <code class="docutils literal notranslate"><span class="pre">bash</span></code> 启动Gmapping建图脚本。</p></li>
+<li><p>将遥控器上的档杆SWB拨至中间位置，开始控制R300移动建图</p></li>
+<li><p>完成建图后，打开一个终端，输入命令 <code class="docutils literal notranslate"><span class="pre">rosrun</span> <span class="pre">map_server</span> <span class="pre">map_saver</span> <span class="pre">-f</span> <span class="pre">~/map</span></code> 保存地图</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><code class="docutils literal notranslate"><span class="pre">-f</span></code> 参数后面表示地图保存的地址和文件名称，为绝对路径。上面这个指令，将地图保存在 根目录下，并且命名为map。</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="cartographer">
+<h2>Cartographer<a class="headerlink" href="#cartographer" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>将小车上电，等待板载计算机、飞控、移动端RTK、移动端Homer启动完成</p></li>
+<li><p>打开遥控器</p></li>
+<li><p>在PC上打开 No Machine 软件，输入 <strong>192.168.1.14</strong> 远程连接到板载计算机。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>板载计算机的固定IP，取决您如何设置 <a class="reference external" href="快速上手指引.html#ip">板载计算机IP</a></p>
+</div>
+</li>
+<li><p>输入密码 <strong>amov</strong> 登录到板载计算机</p></li>
+<li><p>打开板载计算机桌面的 <strong>sh</strong> 文件夹后，在文件夹内右键选择 <strong>open terminal</strong></p></li>
+<li><p>输入命令 <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">r300_cartographer_slam.sh</span></code> 启动Cartographer建图脚本。</p></li>
+<li><p>将遥控器上的档杆SWB拨至中间位置，开始控制R300移动建图</p></li>
+<li><p>完成建图后，打开桌面的 <strong>sh</strong> 文件夹，然后在文件夹内右键选择 <strong>open terminal</strong>。接着，输入命令 <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">r300_cartographer_map_save.sh</span></code> 保存地图。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>该脚本将地图默认保存在 /home/amov/amovcar/src/R300/r300_function/maps/ 下。地图的默认名称为 r300_map</p></li>
+<li><p>使用脚本保存地图会覆盖上一次的地图文件。如果需要多次仿真建图对比，将每次保存的地图单独放在一个文件夹中。</p></li>
+<li><p>如果您想将地图保存在其他位置，打开脚本，修改文件路径即可。</p></li>
+</ul>
+</div>
+</li>
+</ol>
+</section>
+<section id="cartographer-demo">
+<h2>Cartographer Demo<a class="headerlink" href="#cartographer-demo" title="永久链接至标题"></a></h2>
+<p>R300的功能包里面提供了一个简单的Cartographer纯激光建图的Demo，其bag文件放在 <code class="docutils literal notranslate"><span class="pre">/home/amov/amovcar/src/R300/r300_function/bag/pure_slam.bag</span></code>
+可以通过这个bag，对Cartographer的配置文件进行配置，从而进行建图的调试。打开终端，输入以下命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">roslaunch</span> <span class="pre">r300_function</span> <span class="pre">r300_cartographer_demo.launch</span> <span class="pre">bag_filename:=/home/amov/amovcar/src/R300/r300_function/bag/pure_slam.bag</span></code></p>
+<p>当然，您也可以选择播放自己的bag文件，然后通过修改配置文件，查看不同的建图效果</p>
+<p>当bag播放完毕，打开终端，输入以下命令：</p>
+<p><code class="docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">r300_function/demo_map</span> <span class="pre">&amp;&amp;</span> <span class="pre">bash</span> <span class="pre">map_save.sh</span></code> 保存地图。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>该脚本将地图默认保存在 /home/amov/amovcar/src/R300/r300_function/demo_map/ 下。地图的默认名称为 demo_map</p></li>
+<li><p>使用脚本保存地图会覆盖上一次的地图文件。如果需要多次仿真建图对比，将每次保存的地图单独放在一个文件夹中。</p></li>
+<li><p>如果您想将地图保存在其他位置，打开脚本，修改文件路径即可。</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>如果您R300的桌面上sh文件夹内没有相关脚本文件，请更新最新代码。代码地址见 <a class="reference external" href="https://gitee.com/amovlab/amovcar/tree/v1.0-beta/">gitee</a>，选择分支为 <strong>v1.0-beta</strong></p></li>
+<li><p>更新代码以后，与Cartographer相关的脚本文件均在 <code class="docutils literal notranslate"><span class="pre">/amovcar/src/R300/r300_function/sh/</span></code> 目录下，您可以将上述相关脚本放置在桌面的sh文件中，方便您的使用</p></li>
+</ul>
+</div>
+<p>下图为该bag的建图结果</p>
+<img alt="demo_map" src="../_images/demo_map.png" />
+</section>
+<section id="id4">
+<h2>三维建图<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>将小车上电，等待板载计算机、飞控、移动端RTK、移动端Homer启动完成</p></li>
+<li><p>打开遥控器</p></li>
+<li><p>在PC上打开 No Machine 软件，输入 <strong>192.168.1.14</strong> 远程连接到板载计算机。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>板载计算机的固定IP，取决您如何设置 <a class="reference external" href="快速上手指引.html#ip">板载计算机IP</a></p>
+</div>
+</li>
+<li><p>输入密码 <strong>amov</strong> 登录到板载计算机</p></li>
+<li><p>打开板载计算机桌面的 <strong>sh</strong> 文件夹后，右键选择 <strong>open terminal</strong></p></li>
+<li><p>输入命令 <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">r300_rtabmap.sh</span></code> 启动三维建图脚本。</p></li>
+<li><p>将遥控器上的档杆SWB拨至中间位置，开始控制R300移动建图</p></li>
+<li><p>完成建图后，打开一个终端，输入命令 <code class="docutils literal notranslate"><span class="pre">rosrun</span> <span class="pre">map_server</span> <span class="pre">map_saver</span> <span class="pre">-f</span> <span class="pre">~/map_name</span></code> 保存地图</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<ul class="simple">
+<li><p>如果节点启动异常，请确保 <a class="reference external" href="快速上手指引.html#id3">相机序列号</a> 设置正确</p></li>
+<li><p>如果相机序列号正常，仍然存在启动失败的情况，请删除amovcar目录下的 devel 和 build 两个文件夹，然后重新编译整个项目</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html" class="btn btn-neutral float-left" title="传感器校准" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="%E5%AF%BC%E8%88%AA.html" class="btn btn-neutral float-right" title="导航" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, AmovLab.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

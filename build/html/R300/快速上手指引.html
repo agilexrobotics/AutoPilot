@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>快速上手指引 &mdash; AmovCar 1.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="传感器校准" href="%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html" />
+    <link rel="prev" title="术语" href="../overview/%E6%9C%AF%E8%AF%AD.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> AmovCar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">概述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%A6%82%E8%BF%B0.html">R系列无人车概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%89%B9%E7%82%B9.html">R系列无人车特点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%BB%84%E6%88%90.html">R300硬件组成以及配置参数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html">硬件模块介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html">硬件连接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF.html">通信链路</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%9C%AF%E8%AF%AD.html">术语</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">R300</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">快速上手指引</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">板载计算机设置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ip">设置固定IP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">设置相机序列号</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#homer">Homer配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rtk">移动端RTK配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">基站端RTK配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rtk-4g">移动端RTK（4G）配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#r300">R300软件框架</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#amovcar">amovcar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common">common</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#r200">R200</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">R300</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html">传感器校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAM.html">SLAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%AF%BC%E8%88%AA.html">导航</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%BF%E7%9C%9F.html">仿真</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AmovCar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>快速上手指引</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/R300/快速上手指引.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>快速上手指引<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>以下内容在用户拿到R300的时候已经完成配置和测试，保证功能正常。 <strong>如果非必要，请勿修改！</strong></p></li>
+<li><p>以下内容可以作为您二次开发的一个例子</p></li>
+</ul>
+</div>
+<section id="id3">
+<h2>板载计算机设置<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<section id="ip">
+<h3>设置固定IP<a class="headerlink" href="#ip" title="永久链接至标题"></a></h3>
+<ol class="arabic">
+<li><p>将无线/有线键鼠插入R300侧边的USB扩展口，然后打开R300电源</p></li>
+<li><p>输入密码 <strong>amov</strong> 登录到系统</p></li>
+<li><p>打开桌面右上角 <strong>WIFI图标</strong>，点击 <strong>Wired Connected</strong>，找到 <strong>Wired Settings</strong>，点击菜单栏上的 <strong>IPV4</strong> ,选择 <strong>Manual</strong> ，输入IP <strong>192.168.1.14</strong> ，子网掩码 <strong>255.255.255.0</strong> 如下图所示：</p>
+<img alt="Linux_IP" src="../_images/Linux_IP.gif" />
+</li>
+</ol>
+</section>
+<section id="id4">
+<h3>设置相机序列号<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<ol class="arabic simple">
+<li><p>在桌面打开终端</p></li>
+<li><p>输入命令 <code class="docutils literal notranslate"><span class="pre">rs-sensor-control</span></code> ，该命令将会返回 D435i 和 T265的序列号</p></li>
+<li><p>接着打开目录： <code class="docutils literal notranslate"><span class="pre">amovcar/src/common/sensor/amovcar_sensor/launch</span></code> ，将会看到以对应传感器命名的launch文件</p></li>
+<li><p>分别打开D435i / T265 的launch文件，把文件中的参数 <code class="docutils literal notranslate"><span class="pre">defalut</span></code> 的值替换成第2步获取到的相机序列号即可。</p></li>
+</ol>
+</section>
+</section>
+<section id="homer">
+<h2>Homer配置<a class="headerlink" href="#homer" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>将基站端Homer用3S电池供电，再将专有网口线的一端接入基站端Homer的LAN1或LAN2口，另一端接入到PC的网口。（如果您的PC没有网口，则需要一个USB转网口模块）</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul>
+<li><p>Homer需要用专门的电源线（电源线贴有 <strong>电源线 12V</strong> 字样的标签,如下图所示：</p></li>
+<li><img alt="tune" src="../_images/tune.png" />
+</li>
+<li><p>Homer的供电电压为12V</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul>
+<li><p>LAN1或LAN2口为百兆网口。百兆网线如下：</p></li>
+<li><img alt="100" src="../_images/100.png" />
+</li>
+</ul>
+</div>
+</li>
+<li><p>在PC上(Windows系统)打开 <strong>控制面板—查看网络状态和任务—更改适配器设置—右键以太网—属性—Internet协议版本4—属性</strong>，设置为如下图所示：</p>
+<img alt="ip" src="../_images/IP.png" />
+</li>
+<li><p>将移动端Homer和基站端Homer同时通电。基站端Homer用3S电池供电，移动端Homer用小车电源供电。(或者也可以将移动端Homer拆下来，再单独用3S电池供电)</p></li>
+<li><p>基站端Homer配置</p>
+<ul>
+<li><p>首先将基站端Homer的工作模式，拨到 <strong>AP端口</strong>，如下图所示：</p></li>
+<li><img alt="AP" src="../_images/AP.png" />
+</li>
+<li><p>打开浏览器，输入网址 <strong>192.168.1.100</strong> 进入配置界面</p></li>
+<li><p>用户名和密码均为 <strong>admin</strong></p></li>
+<li><p>找到 <strong>config</strong> — <strong>Networking</strong>，选择界面中的 <strong>Static IP</strong> 修改为如下图所示：</p></li>
+<li><img alt="AP" src="../_images/AP_NET.png" />
+</li>
+<li><p>找到 <strong>config</strong> — <strong>Wireless</strong>，找到界面中的 <strong>ESSID</strong>，修改为 <strong>AMOV-002</strong>；找到界面中的 <strong>Passphrase</strong>，将密码修改为 <strong>12345678</strong>。图下图所示：</p></li>
+<li><img alt="AP_WIFI" src="../_images/AP_WIFI.png" />
+</li>
+<li><p>保存</p></li>
+</ul>
+</li>
+<li><p>移动端Homer配置</p>
+<ul>
+<li><p>首先将移动端Homer的工作模式，拨到 <strong>STA端口</strong>，如下图所示：</p></li>
+<li><img alt="STA" src="../_images/STA.png" />
+</li>
+<li><p>打开浏览器，输入网址 <strong>192.168.1.10</strong> 进入配置界面</p></li>
+<li><p>用户名和密码均为 <strong>admin</strong></p></li>
+<li><p>找到 <strong>config</strong> — <strong>Networking</strong>，选择界面中的 <strong>Static IP</strong> 修改为如下图所示：</p></li>
+<li><img alt="STA_NET" src="../_images/STA_NET.png" />
+</li>
+<li><p>到 <strong>config</strong> — <strong>Wireless</strong>，找到界面中的 <strong>ESSID</strong> 旁边的 <strong>Scan AP</strong>，此时将会搜索到基站端Homer配置的WIFI名称 AMOV-002，然后输入密码 12345678 点击连接，如下图所示：</p></li>
+<li><img alt="STA_WIFI" src="../_images/STA_WIFI.png" />
+</li>
+<li><p>保存</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>确保在配置过程中，两个Homer都通电。</p></li>
+<li><p>当两个Homer正面的绿色指示灯常亮，表示二者正确配置并且互相连接成功。</p></li>
+<li><p>基站端(AP模式下)的WIFI名称和密码可以根据实际情况自定义</p></li>
+<li><p>移动端(STA模式下)，在连接上基站端的WIFI以后，一定要 <strong>点击保存</strong>，否则下一次启动将不会自动连接</p></li>
+</ul>
+</div>
+</li>
+<li><p>打开Homer配置软件（ <a class="reference external" href="https://www.aliyundrive.com/s/kcCrEAiSddh">点击下载</a> 配置软件）</p>
+<ul>
+<li><p>根据实际情况选择网卡设备。然后刷新设备，可以看到当前网络设备。</p></li>
+<li><p>选择102，按照下图设置</p></li>
+<li><img alt="102" src="../_images/102.png" />
+</li>
+<li><p>选择12，按照下图设置</p></li>
+<li><img alt="12" src="../_images/12.png" />
+</li>
+<li><p>选择11，按照下图设置</p></li>
+<li><img alt="11" src="../_images/11.png" />
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>101、102、103为基站端Homer的三个串口的IP地址，这个地址可以根据实际情况自定义</p></li>
+<li><p>11、12、13为移动端Homer的三个串口的IP地址，这个地址可以根据实际情况自定义</p></li>
+<li><p>在上面的配置中，使用移动端Homer的UART1串口(192.168.1.11)与飞控通信。见 <a class="reference external" href="../overview/通信链路.html">通信链路</a></p></li>
+<li><p>在上面的配置中，使用移动端Homer的UART2(192.168.1.12) / UART3(192.168.1.13) 串口与移动版RTK通信。见 <a class="reference external" href="../overview/通信链路.html">通信链路</a></p></li>
+</ul>
+</div>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>在配置RTK时，所有的 <strong>RTK天线禁止热插拔</strong>，即 <strong>必须先断电，后插拔RTK天线</strong>。</p>
+</div>
+</section>
+<section id="rtk">
+<h2>移动端RTK配置<a class="headerlink" href="#rtk" title="永久链接至标题"></a></h2>
+<p>采用默认驱动，无需配置</p>
+</section>
+<section id="id6">
+<h2>基站端RTK配置<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>将基站端RTK用USB数据线连接至PC</p></li>
+<li><p>通电（对于移动端RTK，可以使用R300电源供电，也可以拆下后单独用3S电源供电）</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul>
+<li><p>RTK供电线和Homer供电线不兼容，不能混用。必须使用专门的电源线。如下所示：</p></li>
+<li><img alt="RTK_cable" src="../_images/RTK_cable.jpg" />
+</li>
+<li><p>RTK的供电电压为12V</p></li>
+</ul>
+</div>
+</li>
+<li><p>在PC上打开浏览器，输入 <strong>192.168.42.129</strong> 进入配置界面</p></li>
+<li><p>输入用户名 <strong>admin</strong>， 密码 <strong>password</strong> 登录到配置界面</p></li>
+<li><p>在页面左边找到 <strong>系统配置—网页命令</strong> 在对话框中输入命令 <code class="docutils literal notranslate"><span class="pre">posave</span> <span class="pre">auto</span></code>，点击提交</p></li>
+<li><p>然后输入 <code class="docutils literal notranslate"><span class="pre">saveconfig</span></code>，点击提交</p></li>
+<li><p>在页面左边找到 <strong>I / O配置—端口摘要</strong> ，点击 COM2，即可进入COM2的配置界面</p></li>
+<li><p>在 <strong>输出</strong> 栏下面找到 <strong>RTCM</strong>，将其改为 <strong>启用</strong> ，点击确定即可</p></li>
+</ol>
+</section>
+<section id="rtk-4g">
+<h2>移动端RTK（4G）配置<a class="headerlink" href="#rtk-4g" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>将移动端RTK天线接入到移动端RTK的ANT1口，将小天线(又称小辣椒)接入到移动端RTK的4G接口，并插入4G卡。</p></li>
+<li><p>通电（对于移动端RTK，可以使用R300电源供电，也可以拆下后单独用3S电源供电）</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<ul>
+<li><p>RTK供电线和Homer供电线不兼容，不能混用。必须使用专门的电源线。如下所示：</p></li>
+<li><img alt="RTK_cable" src="../_images/RTK_cable.jpg" />
+</li>
+<li><p>RTK的供电电压为12V</p></li>
+</ul>
+</div>
+</li>
+<li><p>用USB数据线，一端接在移动端RTK的USB口，一端接在PC上</p></li>
+<li><p>在PC上打开浏览器，输入 <strong>192.168.42.129</strong> 进入配置界面</p></li>
+<li><p>输入用户名 <strong>admin</strong>， 密码 <strong>password</strong> 登录到配置界面</p></li>
+<li><p>在该页面，您可以看到当前RTK的工作状态，包括卫星观测值质量、跟踪卫星数量、以及定位方式等</p></li>
+<li><p>在页面左边的菜单栏找到 I/O配置，点击COM4口，进入如下图所示的配置</p>
+<img alt="4G_RTK" src="../_images/4G.png" />
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>R300产品不提供千寻、六分账号，如果您有这方面的需求，点击 <a class="reference external" href="https://item.taobao.com/item.htm?ft=t&amp;id=655767742934">阿木实验室淘宝店铺</a> ，获取更多信息</p></li>
+</ul>
+</div>
+</section>
+<section id="r300">
+<h2>R300软件框架<a class="headerlink" href="#r300" title="永久链接至标题"></a></h2>
+<p>amovcar文件结构图如下：</p>
+<img alt="amovcar_filesystem" src="../_images/amovcar_filesystem.png" />
+<section id="amovcar">
+<h3>amovcar<a class="headerlink" href="#amovcar" title="永久链接至标题"></a></h3>
+<p>amovcar文件夹为ROS下的工作空间文件夹，包含无人车几乎所有的源代码文件，无人车功能包均放置在src文件夹下。</p>
+</section>
+<section id="common">
+<h3>common<a class="headerlink" href="#common" title="永久链接至标题"></a></h3>
+<p>common文件夹内含有R200以及R300两款无人车通用的一些功能包，包含一些功能模块以及二维激光雷达、三维激光雷达、相机等传感器驱动ROS功能包。</p>
+</section>
+<section id="r200">
+<h3>R200<a class="headerlink" href="#r200" title="永久链接至标题"></a></h3>
+<p>R200文件夹内含有 <code class="docutils literal notranslate"><span class="pre">r200_bringup</span></code>、 <code class="docutils literal notranslate"><span class="pre">r200_function</span></code>、 <code class="docutils literal notranslate"><span class="pre">r200_simulation</span></code> 三个功能包。</p>
+<p>r200_bringup为R200小车底盘的驱动功能包，R200下位机控制板为飞控，通过mavros连接飞控与板载计算机，r200_bringup在mavros上做了一层封装。</p>
+<p>r200_function文件内含有R200无人车所有功能的源代码，包含自启动服务、配置文件、launch文件、sh脚本文件以及源代码等内容。</p>
+<p>r200_simulation文件内含有R200无人车仿真的源代码，包含模型、gazebo环境、launch文件、配置文件等内容。</p>
+</section>
+<section id="id8">
+<h3>R300<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<p>R300文件夹内含有 <code class="docutils literal notranslate"><span class="pre">r300_bringup</span></code>、 <code class="docutils literal notranslate"><span class="pre">r300_function</span></code>、 <code class="docutils literal notranslate"><span class="pre">r300_simulation</span></code> 三个功能包。</p>
+<p>r300_bringup为R300小车底盘的驱动功能包。</p>
+<p>r300_function文件内含有R300无人车所有功能的源代码，包含自启动服务、配置文件、launch文件、sh脚本文件以及源代码等内容。</p>
+<p>r300_simulation文件内含有R300无人车仿真的源代码，包含模型、gazebo环境、launch文件、配置文件等内容。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../overview/%E6%9C%AF%E8%AF%AD.html" class="btn btn-neutral float-left" title="术语" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html" class="btn btn-neutral float-right" title="传感器校准" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, AmovLab.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

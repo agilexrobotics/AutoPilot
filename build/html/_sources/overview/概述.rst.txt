@@ -1,0 +1,19 @@
+AutoPilot系列无人车概述
+================================
+
+什么是 AutoPilot
+--------------------------
+
+AutoPilot 是由 `阿木实验室 <https://www.amovlab.com/zh-CN>`_ 联合 `松灵机器人 <https://www.agilex.ai/?lang=zh-cn>`_ 打造的一款全栈式底盘+软硬件一体的无人车解决方案，全称为 **Autopilot kit AutoPilot**，简称为AutoPilot。
+AutoPilot 可以省去无人车制造这一环节，快速进入核心研发的阶段，能够缩短项目或者应用研发的时间，让研发更加高效！
+
+.. note::
+    - `AutoPilot宣传视频 <https://www.bilibili.com/video/BV1PB4y1K7v9?spm_id_from=333.999.0.0>`_
+
+AutoPilot能做什么
+-----------------------------
+
+#. AutoPilot采用松灵 `Scout mini <https://www.agilex.ai/product/3?lang=zh-cn>`_ 底盘,该底盘性能强悍，载重能力、越野能力优秀。可载重10Kg，高底盘加上摇摆独立悬梁可适应室外大部分运动场景
+#. AutoPilot行进速度快，空载时可以达到10.8Km/h
+#. AutoPilot基于开源机器人操作系统 `ROS <https://www.ros.org/>`_ 和 `Ardupilot <https://ardupilot.org/>`_ 自动导航系统，无需提前建图可以实现无人车户外自主导航定位
+#. AutoPilot融合双目相机、深度相机以及激光雷达，可以实现室内SLAM、导航、路径规划等功能

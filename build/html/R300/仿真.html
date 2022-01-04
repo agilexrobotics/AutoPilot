@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>仿真 &mdash; AmovCar 1.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="导航" href="%E5%AF%BC%E8%88%AA.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> AmovCar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">概述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%A6%82%E8%BF%B0.html">R系列无人车概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%89%B9%E7%82%B9.html">R系列无人车特点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%BB%84%E6%88%90.html">R300硬件组成以及配置参数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html">硬件模块介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html">硬件连接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF.html">通信链路</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%9C%AF%E8%AF%AD.html">术语</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">R300</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html">快速上手指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html">传感器校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAM.html">SLAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%AF%BC%E8%88%AA.html">导航</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">仿真</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">仿真系统介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">仿真环境搭建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slam">SLAM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gmapping">Gmapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cartographer">Cartographer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rtabmap">RtabMap三维建图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#octomap">OctoMap三维建图</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AmovCar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>仿真</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/R300/仿真.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>仿真<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<section id="id2">
+<h2>仿真系统介绍<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<p>R300仿真系统基于ROS以及Gazebo仿真系统搭建，提供无人车车体模型，并提供二维激光雷达、三维激光雷达以及深度相机等传感器仿真，
+目前配备有navigation导航功能，RtabMap三维建图功能，OctoMap三维建图功能，SLAM建图功能的仿真。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>R300仿真对CPU配置有一定的要求，较早的CPU例如i3、部分i5可能存在卡的情况。</p></li>
+<li><p>不建议在R300的板载计算机上进行仿真操作</p></li>
+</ul>
+</div>
+</section>
+<section id="id3">
+<h2>仿真环境搭建<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<p>打开终端，输入以下命令，安装仿真环境</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">ros-melodic-gmapping</span> <span class="pre">ros-melodic-navigation</span> <span class="pre">ros-melodic-amcl</span> <span class="pre">ros-melodic-map-server</span> <span class="pre">ros-melodic-move-base</span> <span class="pre">ros-melodic-rtabmap</span> <span class="pre">ros-melodic-octomap</span> <span class="pre">-y</span></code></p>
+</section>
+<section id="slam">
+<h2>SLAM<a class="headerlink" href="#slam" title="永久链接至标题"></a></h2>
+<section id="gmapping">
+<h3>Gmapping<a class="headerlink" href="#gmapping" title="永久链接至标题"></a></h3>
+<ol class="arabic">
+<li><p>打开终端，输入命令 <code class="docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">r300_simulation/sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">bash</span> <span class="pre">r300_simulation_slam_gmapping.sh</span></code></p></li>
+<li><p>依次检查弹出的终端窗口，检查每个终端中的节点是否正常启动。</p></li>
+<li><p>然后在第三个终端界面，通过键盘控制R300的移动，进行建图。如下图所示</p>
+<img alt="R300 Gmapping仿真" src="../_images/R300_sim_slam_gmapping_1.png" />
+</li>
+<li><p>建图完成以后，打开一个新的终端，输入命令 <code class="docutils literal notranslate"><span class="pre">rosrun</span> <span class="pre">map_server</span> <span class="pre">map_saver</span> <span class="pre">-f</span> <span class="pre">~/sim_map</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> 参数后面表示地图保存的地址和文件名称，为绝对路径。上面这个指令，将地图保存在 根目录下，并且命名为map。</p></li>
+<li><p>如果您提前启动了 <code class="docutils literal notranslate"><span class="pre">roscore</span></code>，那么第一个终端将会报错，属正常情况。</p></li>
+</ul>
+</div>
+</li>
+</ol>
+<p>下图为构建好的仿真地图</p>
+<img alt="R300 Gmapping仿真地图" src="../_images/R300_sim_slam_gmapping_2.png" />
+</section>
+<section id="cartographer">
+<h3>Cartographer<a class="headerlink" href="#cartographer" title="永久链接至标题"></a></h3>
+<ol class="arabic">
+<li><p>打开终端，输入命令 <code class="docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">r300_simulation/sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">bash</span> <span class="pre">r300_simulation_slam_cartographer.sh</span></code></p></li>
+<li><p>依次检查弹出的终端窗口，检查每个终端中的节点是否正常启动。</p></li>
+<li><p>然后在最后一个终端界面，通过键盘控制R300的移动，进行建图。如下图所示</p>
+<img alt="R300 Cartographer仿真" src="../_images/R300_sim_slam_cartographer_1.png" />
+</li>
+<li><p>建图完成以后，打开一个新的终端，输入命令 <code class="docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">r300_simulation/sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">bash</span> <span class="pre">r300_cartographer_map_save.sh</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>该脚本将地图默认保存在 /home/amov/amovcar/src/R300/r300_simulation/maps/ 下。地图的默认名称为 sim_map</p></li>
+<li><p>使用脚本保存地图会覆盖上一次的地图文件。如果需要多次仿真建图对比，将每次保存的地图单独放在一个文件夹中。</p></li>
+<li><p>如果您想将地图保存在其他位置，打开脚本，修改文件路径即可。</p></li>
+<li><p>如果您提前启动了 <code class="docutils literal notranslate"><span class="pre">roscore</span></code>，那么第一个终端将会报错，属正常情况。</p></li>
+</ul>
+</div>
+</li>
+</ol>
+<p>下图为构建好的仿真地图</p>
+<img alt="R300 Cartographer仿真地图" src="../_images/R300_sim_slam_cartographer_2.png" />
+</section>
+</section>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>打开终端，输入命令 <code class="docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">r300_simulation/sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">bash</span> <span class="pre">r300_simulation_navigation.sh</span></code></p></li>
+<li><p>依次检查弹出的终端窗口，检查每个终端中的节点是否正常启动。如下图所示：</p>
+<img alt="R300 Navigation仿真" src="../_images/R300_sim_navigation_1.png" />
+</li>
+<li><p>确认终端均没有报错，在第三个终端内，用键盘控制小车稍微移动。待R300周围粒子收敛以后，按下 <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">c</span></code>，关闭该终端。</p></li>
+<li><p>在启动的 <strong>rviz</strong> 界面顶部的菜单栏中，选择 <strong>Navigation Goal</strong>，单击地图以设置机器人的目的地，然后将绿色箭头指向机器人在目标点将要面对的方向。</p></li>
+<li><p>R300开始导航如下所示</p>
+<img alt="R300 Cartographer仿真" src="../_images/R300_sim_navigation_2.png" />
+</li>
+</ol>
+</section>
+<section id="rtabmap">
+<h2>RtabMap三维建图<a class="headerlink" href="#rtabmap" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>打开终端，输入命令 <code class="docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">r300_simulation/sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">bash</span> <span class="pre">r300_simulation_rtabmap.sh</span></code></p></li>
+<li><p>依次检查弹出的终端窗口，检查每个终端中的节点是否正常启动。</p></li>
+<li><p>确认终端均没有报错，在第三个终端内，用键盘控制小车移动进行建图。</p></li>
+<li><p>建图完成以后，输入命令 <code class="docutils literal notranslate"><span class="pre">rtabmap-databaseViewer</span> <span class="pre">~/.ros/rtabmap.db</span></code> 保存地图</p></li>
+<li><p>仿真rtabmap如下</p>
+<img alt="R300 RtabMap仿真" src="../_images/R300_sim_rtabmap_1.png" />
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>查看地图的命令为  <code class="docutils literal notranslate"><span class="pre">rtabmap-databaseViewer</span> <span class="pre">~/.ros/rtabmap.db</span></code></p></li>
+<li><p>输入查看地图命令后会跳出一个对话框，点击菜单栏上的 <strong>view—occupancy grid</strong> 即可查看地图</p></li>
+<li><p>地图保存的路径为 ~/.ros/rtabmap.db</p></li>
+</ul>
+</div>
+</li>
+</ol>
+</section>
+<section id="octomap">
+<h2>OctoMap三维建图<a class="headerlink" href="#octomap" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>打开终端，输入命令 <code class="docutils literal notranslate"><span class="pre">roscd</span> <span class="pre">r300_simulation/sh</span> <span class="pre">&amp;&amp;</span> <span class="pre">bash</span> <span class="pre">r300_simulation_octomap.sh</span></code></p></li>
+<li><p>依次检查弹出的终端窗口，检查每个终端中的节点是否正常启动。</p></li>
+<li><p>确认终端均没有报错，在第三个终端内，用键盘控制小车移动进行建图。如下图所示：</p>
+<img alt="R300 OctoMap仿真" src="../_images/R300_sim_octomap_1.png" />
+</li>
+<li><p>建图完成以后，输入命令 <code class="docutils literal notranslate"><span class="pre">rosrun</span> <span class="pre">octomap_server</span> <span class="pre">octomap_saver</span> <span class="pre">-f</span> <span class="pre">~/map_name.ot</span></code> 保存地图</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> 参数后面表示地图保存的地址和文件名称，为绝对路径。上面这个指令，将地图保存在根目录下，并且命名为map_name.ot。</p></li>
+<li><p>生成地图文件会耗费一定时间，示例中地图文件生成耗费时间大概在5秒左右</p></li>
+</ul>
+</div>
+</li>
+<li><p>输入命令 <code class="docutils literal notranslate"><span class="pre">octovis</span> <span class="pre">map_name.ot</span></code> 查看三维地图。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>需在保存地图的文件夹路径下输入命令</p></li>
+<li><p>查看oct地图需要安装相关功能包 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">octovis</span></code></p></li>
+</ul>
+</div>
+</li>
+<li><p>仿真Octomap地图如下:</p></li>
+</ol>
+<img alt="R300 RtabMap仿真地图" src="../_images/R300_sim_octomap_2.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%E5%AF%BC%E8%88%AA.html" class="btn btn-neutral float-left" title="导航" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, AmovLab.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

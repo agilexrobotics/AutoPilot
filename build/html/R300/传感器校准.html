@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>传感器校准 &mdash; AmovCar 1.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="SLAM" href="SLAM.html" />
+    <link rel="prev" title="快速上手指引" href="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> AmovCar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">概述</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%A6%82%E8%BF%B0.html">R系列无人车概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%89%B9%E7%82%B9.html">R系列无人车特点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%BB%84%E6%88%90.html">R300硬件组成以及配置参数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html">硬件模块介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html">硬件连接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF.html">通信链路</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/%E6%9C%AF%E8%AF%AD.html">术语</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">R300</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html">快速上手指引</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">传感器校准</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Mission Planner介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">飞控固件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">刷入飞控参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">加速度计与指南针的校准</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SLAM.html">SLAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%AF%BC%E8%88%AA.html">导航</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%BF%E7%9C%9F.html">仿真</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AmovCar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>传感器校准</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/R300/传感器校准.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>传感器校准<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>传感器在用户拿到R300的时候已经完成校准，保证功能正常。 <strong>如果非必要，请勿修改！</strong></p></li>
+<li><p>以下内容可以作为您二次开发的一个例子</p></li>
+<li><p>传感器的校准需要下载 <a class="reference external" href="https://ardupilot.org/planner/docs/mission-planner-installation.html">Mission-Planner</a> 。</p></li>
+</ul>
+</div>
+<section id="id2">
+<h2>Mission Planner介绍<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<p>Mission Planner 是一个功能完善的地面站应用程序，仅仅与Windows兼容，暂时不支持Linux系统。主要用于连接飞控，与飞控之间进行通信，并且
+实时显示飞控相关数据。点击 <a class="reference external" href="https://ardupilot.org/planner/">这里</a> 可以获取更多有关Mission Planner相关信息。</p>
+<img alt="mission-planner" src="../_images/MP.png" />
+<p>Mission Planner的顶部工具栏如下</p>
+<img alt="MP-interface" src="../_images/MP-interface.png" />
+<p><strong>飞行数据：</strong>
+飞行数据界面内容主要展示无人车飞控相关数据包含GPS数据状态，EKF定位状态，无人车当前模式，解上锁状况，无人车相关数据，地图等</p>
+<p><strong>飞行计划：</strong>
+在该界面可画出无人车的航点，将航点传入到飞控中，修改航点相关的参数，读取飞控的航点等内容。</p>
+<p><strong>初始设置：</strong>
+传感器校准就需要在此界面设置，一般来说，需要校准的传感器为罗盘，加速度计，平面校准等。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>某些版本地面站在传感器校准时会发生异常，出现该情况时，请更换地面站版本进行传感器校准。</p>
+</div>
+<p><strong>配置/调试：</strong>
+查看以及修改飞控的参数。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>参数修改需充分了解APM以及Mission Planner相关基础知识，需谨慎使用，修改错误将导致无人车无法正常运行。</p>
+</div>
+</section>
+<section id="id4">
+<h2>飞控固件<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<p>R300的飞控固件为阿木实验室定制版本，暂不开源</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>若非必要， <strong>请勿升级R300的固件</strong>，由升级固件后所导致的R300功能无法正常使用，请自行解决！</p>
+</div>
+</section>
+<section id="id5">
+<h2>刷入飞控参数<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<ol class="arabic">
+<li><p>点击 <a class="reference external" href="https://pan.baidu.com/s/1itfLk2RiFFgmcC7Z1UX4Iw">飞控参数</a> 可以下载飞控参数，提取码为 amov</p></li>
+<li><p>将飞控用USB数据线，一端连接飞控USB端口，一端连接PC（Win7 / Win10 均可）</p></li>
+<li><p>打开Mission Planner软件</p></li>
+<li><p>在右上角选择端口号 <strong>COMx</strong> ，波特率为 <strong>115200</strong>，点击连接</p></li>
+<li><p>点击顶部工具栏的 <strong>配置—全部参数表—加载—选择下载好的参数—写入参数</strong>，如下图所示：</p>
+<img alt="param" src="../_images/a.gif" />
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>COMx 端口号取决于实际使用情况</p></li>
+<li><p>飞控参数写入以后，需要重启生效</p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>若非必要， <strong>请勿修改R300飞控参数</strong>，如果您修改部分参数后导致R300功能无法正常使用，请自行解决！</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>在进行传感器校准之前，确保您已经刷入了R300的飞控固件以及飞控参数</p>
+</div>
+</section>
+<section id="id7">
+<h2>加速度计与指南针的校准<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<p>在出厂测试时，传感器已经校准过，用户无需校准</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html" class="btn btn-neutral float-left" title="快速上手指引" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="SLAM.html" class="btn btn-neutral float-right" title="SLAM" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, AmovLab.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

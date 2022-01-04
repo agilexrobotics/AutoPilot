@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>硬件模块介绍 &mdash; AmovCar 1.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="硬件连接" href="%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html" />
+    <link rel="prev" title="R300硬件组成以及配置参数" href="%E7%BB%84%E6%88%90.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> AmovCar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">概述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E6%A6%82%E8%BF%B0.html">R系列无人车概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%89%B9%E7%82%B9.html">R系列无人车特点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BB%84%E6%88%90.html">R300硬件组成以及配置参数</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">硬件模块介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">板载计算机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">飞控</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">激光雷达</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#t265">T265双目相机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d435i">D435i深度相机</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#homer">Homer图数传</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rtk">RTK模块</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">显示器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#s">3S电池</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">遥控器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html">硬件连接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF.html">通信链路</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%AF%E8%AF%AD.html">术语</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">R300</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../R300/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html">快速上手指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R300/%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html">传感器校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R300/SLAM.html">SLAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R300/%E5%AF%BC%E8%88%AA.html">导航</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R300/%E4%BB%BF%E7%9C%9F.html">仿真</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AmovCar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>硬件模块介绍</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/overview/硬件模块介绍.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>硬件模块介绍<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<section id="id2">
+<h2>板载计算机<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<img alt="X86" src="../_images/X86.png" />
+<p>板载计算机上预装了Ubuntu18.04操作系统以及ROS Melodic系统，并搭载有无人车的ROS功能包amovcar、各种传感器的驱动以及常用开发软件等。
+并通过有线连接的方式接入由Homer图数传组成的局域网中。</p>
+</section>
+<section id="id3">
+<h2>飞控<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<img alt="px4" src="../_images/Pixhawk4.png" />
+<p>飞控全称飞行控制器，配合无人机/无人车及其系统以及其他元器件共同来控制无人机飞行或无人车
+，飞控常与IMU（惯性测量单元）、气压计、磁罗盘等元器件共同组成飞行控制系统。</p>
+<p>图中展示了无人车使用的飞行控制器（Pixhawk4），在这里对无人车常使用的接口做一个介绍：</p>
+<p>1. <strong>POWER1：</strong>
+飞控的电源接口，由小车底盘电源通过降压模块给到飞控，供电电压为5V。</p>
+<p>2. <strong>TELEM1：</strong>
+Wifi数传的数据接口，使飞控能够接入Wifi数传提供的局域网中。</p>
+<p>3. <strong>TELEM2：</strong>
+连接板载计算机的接口，飞控通过TELEM2与板载计算机建立通信连接，板载计算机的控制数据
+也通过这个接口发送到飞控中。</p>
+<p>4. <strong>PPM RC：</strong>
+遥控器接收器信号接口，该接口会接收来自遥控器的控制信号。</p>
+<p>5. <strong>GPS MODULE：</strong>
+GPS模块的接口，给GPS模块进行供电以及接收GPS模块传递的数据。</p>
+<p>6. <strong>I/O PWM OUT：</strong>
+电机控制的PWM输出口，输出控制数据控制四个电机。</p>
+</section>
+<section id="id4">
+<h2>激光雷达<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<img alt="lidar" src="../_images/lidar.png" />
+<p>激光雷达采用蓝海光电LDS-50C-3 360°激光扫描测距雷达，内部搭载高性能脉冲TOF测距系统，即使在远距离物体
+条件下，测量精度依旧精准、稳定。激光雷达可以帮助R300实现室内、室外精准避障。</p>
+</section>
+<section id="t265">
+<h2>T265双目相机<a class="headerlink" href="#t265" title="永久链接至标题"></a></h2>
+<img alt="T265" src="../_images/T265.png" />
+<p>英特尔® 实感™ 追踪摄像头 T265 包含两个鱼眼镜头传感器、一个 IMU 和一个英特尔® Movidius™ Myriad™ 2 VPU。所有的 V‑SLAM 算法都直接在 VPU 上运行，能够实现非常低的延迟和非常高效的功耗。
+通过视觉与IMU以及V-SLAM算法的结合，T265双目相机能为无人车提供定位数据。</p>
+</section>
+<section id="d435i">
+<h2>D435i深度相机<a class="headerlink" href="#d435i" title="永久链接至标题"></a></h2>
+<img alt="D435i" src="../_images/D435i.png" />
+<p>英特尔® 实感™ D435i在尖端立体深度摄像头中放置了一个IMU。D435i在小巧外形中采用英特尔模块和视觉处理器，是一个功能强大的一体产品，可与可定制软件配合使用，是一款能够了解自身运动的深度摄像头。</p>
+</section>
+<section id="homer">
+<h2>Homer图数传<a class="headerlink" href="#homer" title="永久链接至标题"></a></h2>
+<img alt="Homer" src="../_images/Homer.png" />
+<p>Homer图数传模块建立起一个局域网，将无人车上的板载计算机、飞控、RTK等车载硬件以及用户的电脑接入到局域网中。方便用户远程访问无人车的飞控和板载计算机，进而实现远程控制以及数据监听。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>放置在车上的Homer称为 <strong>移动端Homer</strong></p></li>
+<li><p>与用户PC连接的Homer称为 <strong>基站端Homer</strong></p></li>
+</ul>
+</div>
+</section>
+<section id="rtk">
+<h2>RTK模块<a class="headerlink" href="#rtk" title="永久链接至标题"></a></h2>
+<img alt="RTK" src="../_images/RTK.png" />
+<p>RTK(Real Time Kinematic)，即实时动态测量技术，又称差分GPS。该模块用于在室外定位无人车，其定位精度为厘米级。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>放置在车上的RTK称为 <strong>移动端RTK</strong></p></li>
+<li><p>与地面端Homer连接的称为 <strong>基站端Homer</strong></p></li>
+<li><p>放置在小车上的RTK，并且RTK内部插入4G电话卡称为 <strong>移动端RTK（4G）</strong></p></li>
+</ul>
+</div>
+</section>
+<section id="id5">
+<h2>显示器<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<img alt="monitor" src="../_images/monitor.jpg" />
+<p>显示器采用10英寸无触摸屏幕，1024 * 600 分辨率，支持 HDMI接口，适用于树莓派、NX、nano、x86等设备。</p>
+</section>
+<section id="s">
+<h2>3S电池<a class="headerlink" href="#s" title="永久链接至标题"></a></h2>
+<img alt="battery" src="../_images/battery.jpg" />
+<p>3S电池用于给 <strong>基站端Homer</strong> 和 <strong>基站端RTK</strong> 供电。3S电池满电电压12.6V。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>3S电池过充过放容易导致电池损坏，在电压低于 <strong>11V</strong> 时建议停止继续使用，待电池冷却至常温后充电，充满电后也不要立即使用，待电池冷却至常温后使用。</p>
+</div>
+</section>
+<section id="id6">
+<h2>遥控器<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<img alt="FS-i6S" src="../_images/FS-i6S.png" />
+<p>1. 开关机按钮：两个按钮同时按下将开启或关闭遥控器，开机时，遥控器上部分的档杆（四个SW*档杆）需 <strong>全部打至顶端</strong>，
+关机时，遥控器需与遥控器接收器断开连接（断开遥控器或接收器的电源）。</p>
+<ol class="arabic simple" start="2">
+<li><p>摇杆：左侧摇杆上下移动控制无人车前进后退，右侧摇杆左右移动控制无人车左右移动。</p></li>
+</ol>
+<p>3. 档杆：R300无人车中从左往右数第二根档杆(SWB)控制无人车的模式，一共有两档， <strong>中间位置无人车受遥控器控制，顶端位置无人车受板载计算机控制。</strong>
+SWC挡杆控制无人车灯光模式，最上端为呼吸灯模式，中间为常亮模式，最下端为常闭模式。SWD挡杆控制无人车切换高速和低速模式。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%E7%BB%84%E6%88%90.html" class="btn btn-neutral float-left" title="R300硬件组成以及配置参数" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html" class="btn btn-neutral float-right" title="硬件连接" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, AmovLab.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

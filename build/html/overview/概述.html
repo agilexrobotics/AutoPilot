@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoPilot系列无人车概述 &mdash; AmovCar 1.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="R系列无人车特点" href="%E7%89%B9%E7%82%B9.html" />
+    <link rel="prev" title="AutoPilot 使用文档" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> AmovCar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">概述</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AutoPilot系列无人车概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">什么是 AutoPilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">AutoPilot能做什么</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%89%B9%E7%82%B9.html">R系列无人车特点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%BB%84%E6%88%90.html">AutoPilot硬件组成以及配置参数</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html">硬件模块介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html">硬件连接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF.html">通信链路</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%AF%E8%AF%AD.html">术语</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">AutoPilot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html">快速上手指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html">传感器校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/SLAM.html">SLAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E5%AF%BC%E8%88%AA.html">导航</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E4%BB%BF%E7%9C%9F.html">仿真</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AmovCar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>AutoPilot系列无人车概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/overview/概述.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autopilot">
+<h1>AutoPilot系列无人车概述<a class="headerlink" href="#autopilot" title="永久链接至标题"></a></h1>
+<section id="id1">
+<h2>什么是 AutoPilot<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<p>AutoPilot 是由 <a class="reference external" href="https://www.amovlab.com/zh-CN">阿木实验室</a> 联合 <a class="reference external" href="https://www.agilex.ai/?lang=zh-cn">松灵机器人</a> 打造的一款全栈式底盘+软硬件一体的无人车解决方案，全称为 <strong>Autopilot kit AutoPilot</strong>，简称为AutoPilot。
+AutoPilot 可以省去无人车制造这一环节，快速进入核心研发的阶段，能够缩短项目或者应用研发的时间，让研发更加高效！</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.bilibili.com/video/BV1PB4y1K7v9?spm_id_from=333.999.0.0">AutoPilot宣传视频</a></p></li>
+</ul>
+</div>
+</section>
+<section id="id5">
+<h2>AutoPilot能做什么<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<ol class="arabic simple">
+<li><p>AutoPilot采用松灵 <a class="reference external" href="https://www.agilex.ai/product/3?lang=zh-cn">Scout mini</a> 底盘,该底盘性能强悍，载重能力、越野能力优秀。可载重10Kg，高底盘加上摇摆独立悬梁可适应室外大部分运动场景</p></li>
+<li><p>AutoPilot行进速度快，空载时可以达到10.8Km/h</p></li>
+<li><p>AutoPilot基于开源机器人操作系统 <a class="reference external" href="https://www.ros.org/">ROS</a> 和 <a class="reference external" href="https://ardupilot.org/">Ardupilot</a> 自动导航系统，无需提前建图可以实现无人车户外自主导航定位</p></li>
+<li><p>AutoPilot融合双目相机、深度相机以及激光雷达，可以实现室内SLAM、导航、路径规划等功能</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="AutoPilot 使用文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="%E7%89%B9%E7%82%B9.html" class="btn btn-neutral float-right" title="R系列无人车特点" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, AmovLab.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

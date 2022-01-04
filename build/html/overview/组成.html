@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoPilot硬件组成以及配置参数 &mdash; AmovCar 1.0 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="硬件模块介绍" href="%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html" />
+    <link rel="prev" title="R系列无人车特点" href="%E7%89%B9%E7%82%B9.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> AmovCar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">概述</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="%E6%A6%82%E8%BF%B0.html">AutoPilot系列无人车概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%89%B9%E7%82%B9.html">R系列无人车特点</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AutoPilot硬件组成以及配置参数</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">硬件配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">性能参数</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html">硬件模块介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5.html">硬件连接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E9%80%9A%E4%BF%A1%E9%93%BE%E8%B7%AF.html">通信链路</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%AF%E8%AF%AD.html">术语</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">AutoPilot</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%BC%95.html">快速上手指引</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%A1%E5%87%86.html">传感器校准</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/SLAM.html">SLAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E5%AF%BC%E8%88%AA.html">导航</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoPilot/%E4%BB%BF%E7%9C%9F.html">仿真</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AmovCar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>AutoPilot硬件组成以及配置参数</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/overview/组成.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="autopilot">
+<h1>AutoPilot硬件组成以及配置参数<a class="headerlink" href="#autopilot" title="永久链接至标题"></a></h1>
+<section id="id2">
+<h2>硬件配置<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>AutoPilot基站版和移动版硬件上配置完全一样，只是移动版不使用基站版RTK，见 <a class="reference external" href="通信链路.html">通信链路</a></p></li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>虽然基站版和移动版可以通过修改RTK软件配置从而实现互相转换，但是 <strong>目前尚未进行任何在移动版RTK上同时使用4G信号数据和RTK基站版纠偏数据！</strong>，如果您在二次开发的时候，进行上述的尝试，所造成的后果 <strong>自行承担责任</strong>。</p>
+</div>
+</section>
+<section id="id3">
+<h2>性能参数<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>参数类型</p></td>
+<td><p>性能指标</p></td>
+</tr>
+<tr class="row-even"><td><p>机械参数</p></td>
+<td><p>尺寸: 627 x 549 x502 mm</p>
+<p>轴距: 452 mm</p>
+<p>前后轮距: 450 mm</p>
+<p>额定负载: 7Kg（默认公路轮胎）</p>
+<p>重量: 26Kg</p>
+<p>电池: 锂电池24V 15Ah</p>
+<p>电机: 直流无刷 4 x 150w</p>
+<p>驱动: 四轮独立驱动</p>
+<p>悬架: 摇臂独立悬架</p>
+<p>转向: 四轮差速转向</p>
+<p>安全装备: 伺服刹车、前保险杠</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>性能参数</p></td>
+<td><p>空载最大时速: 10.8 Km/h</p>
+<p>最小转弯半径: 原地转弯</p>
+<p>最大爬坡能力: 30°</p>
+<p>最小离地间隙: 107 mm</p>
+<p>续航里程: 10Km</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>控制参数</p></td>
+<td><p>控制模式: 遥控器控制 / 上位机控制</p>
+<p>遥控器: 2.4Ghz、极限距离 1 Km</p>
+<p>通信接口: CAN</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%E7%89%B9%E7%82%B9.html" class="btn btn-neutral float-left" title="R系列无人车特点" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="%E7%A1%AC%E4%BB%B6%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D.html" class="btn btn-neutral float-right" title="硬件模块介绍" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, AmovLab.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
