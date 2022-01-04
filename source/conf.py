@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'AmovCar'
-copyright = '2021, AmovLab'
-author = 'AmovLab'
+project = 'AutoPilot'
+copyright = '2021, AmovLab & Agilex Robotics'
+author = 'Agilex Robotics'
 
 # The short X.Y version
 version = ''
@@ -102,7 +102,7 @@ html_static_path = ['ystatic']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'AmovCardoc'
+htmlhelp_basename = 'AutoPilotdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
